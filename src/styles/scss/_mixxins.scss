@@ -1,0 +1,19 @@
+@function percent($pixels, $context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return ((($pixels / $context) * 100) * 1%);
+}
+
+@function relativeHeight($pixels) {
+  @return percent($pixels, $baseHeight);
+}
+
+@function relativeWidth($pixels) {
+  @return percent($pixels, $baseWidth);
+}

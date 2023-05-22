@@ -1,0 +1,34 @@
+/*
+@keyframes snowing {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(0%, 5%);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(0%, 45%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0%, 50%);
+  }
+}
+*/
+@keyframes move_cta {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(20%, -20%)
+  }
+  75% {
+    transform: translate(0%, -0%)
+  }
+  100% {
+    transform: translate(0%, -0%)
+  }
+}
