@@ -105,3 +105,40 @@
 }
 */
 
+
+
+@keyframes slideInDown {
+  from {
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+}
+
+.slideInDown {
+  animation-name: slideInDown;
+}
+
+
+@keyframes break {
+  10%, 90% {
+    transform: translate(-50%, -50%) rotate(-5deg);
+  }
+
+  20%, 80% {
+    transform: translate(-50%, -50%) rotate(10deg);
+  }
+
+  30%, 50%, 70% {
+    transform: translate(-50%, -50%) rotate(-15deg);
+  }
+
+  40%, 60% {
+    transform: translate(-50%, -50%) rotate(15deg);
+  }
+}
+

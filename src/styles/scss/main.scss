@@ -9,12 +9,17 @@ canvas {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
+
   img {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+}
+
+#iceBG {
+  display: block;
 }
 
 #container {
@@ -31,18 +36,80 @@ canvas {
 
 
 #crack {
-    position: absolute;
-    background-size: cover;
-    background-position: center;
-    transform: translate(-66%, -78%);
-    z-index: 2000;
-    pointer-events: none;
-    opacity: 0.35;
-    transition: opacity 0.8s linear;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  transform: translate(-66%, -78%);
+  z-index: 2000;
+  pointer-events: none;
+  opacity: 0.35;
+  transition: opacity 0.8s linear;
 }
 
 #crack.done {
-    opacity: 0;
+  opacity: 0;
 }
 
 @import "crack";
+
+
+.rororo {
+  transition: all 1.2s linear !important;
+
+  &.yoyo {
+    opacity: 0;
+  }
+}
+
+
+#packaging {
+  opacity: 0;
+
+  &.visible {
+    opacity: 1;
+  }
+
+  position: relative;
+
+  img {
+    display: block;
+    width: 100%;
+
+    &:not(#baygay) {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &#cold_dring {
+      visibility: hidden;
+
+      &.show {
+
+        animation: slideInDown 2s ease 0s 1 normal forwards;
+      }
+    }
+  }
+
+
+}
+
+
+#cta {
+  position: absolute;
+  width: 25vw;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0%);
+  z-index: 2000;
+  transform-origin: center;
+
+  animation: break 2s ease infinite;
+  pointer-events: none;
+  transition: opacity 0.3s linear;
+  &.hidden {
+    opacity: 0;
+  }
+}
+

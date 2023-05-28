@@ -1,10 +1,10 @@
-
 (function () {
-  var mainTimeout;
   var cta = document.getElementById("cta");
   var content = document.getElementById("content");
   var finished = false;
+  var clickInterval;
   var showBtn = function (timeout) {
+    clearInterval(clickInterval)
     setTimeout(function () {
       if (finished) return;
       finished = true;
@@ -14,16 +14,39 @@
 
   var startMainTimeout = function () {
     mainTimeout = setTimeout(function () {
-      showBtn(0);
+      randomClick()
+
+      clickInterval = setInterval( function () {
+        randomClick()
+      }, 1000)
     }, 9000);
   };
+
+  var randomClick = function() {
+    var element = document.getElementById("glassImg");
+
+    if (element) {
+      var rect = element.getBoundingClientRect();
+      var randomX = Math.floor(Math.random() * rect.width);
+      var randomY = Math.floor(Math.random() * rect.height);
+
+      var clickEvent = new MouseEvent('click', {
+        'view': window,
+        'bubbles': true,
+        'cancelable': true,
+        'clientX': rect.left + randomX,
+        'clientY': rect.top + randomY
+      });
+
+      element.dispatchEvent(clickEvent);
+    }
+  }
 
   var start = function (size) {
     startMainTimeout();
 
     imageWidth = window.innerWidth,
     imageHeight = window.innerHeight;
-
     TweenMax.set(container, { perspective: 800 });
 
     // Replace the following string with your own base64 data
@@ -49,6 +72,10 @@
       },
       false
     );
+
+    document.body.addEventListener('finished', function(e) {
+      showBtn(2500)
+    });
   };
 
   var preload = function () {

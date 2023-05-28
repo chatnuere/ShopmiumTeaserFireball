@@ -8,7 +8,7 @@ var images = [],
 var image 
 
 var imageWidth
-var imageHeight 
+var imageHeight
 
 var vertices = [],
   indices = [],
@@ -25,6 +25,7 @@ function imagesLoaded() {
   container.style.width = window.innerWidth + "px";
   container.style.height = window.innerHeight + "px";
   placeImage();
+  document.getElementById('packaging').classList.add('visible')
 }
 
 function placeImage() {
@@ -38,6 +39,7 @@ function placeImage() {
   var aspectRatioImg = image.naturalWidth / image.naturalHeight;
   var aspectRatioContainer = containerWidth / containerHeight;
 
+  image.id = 'glassImg'
   if (aspectRatioImg < aspectRatioContainer) {
     image.style.width = "100%";
     image.style.height = "auto";
@@ -59,19 +61,28 @@ function imageClickHandler(event) {
   clickPosition[1] = event.clientY - top;
 
   triangulate();
-  console.log('click')
-  console.log(clickCounter)
   clickCounter++
 
+  clearTimeout(mainTimeout)
+  document.getElementById('cta').classList.add('hidden')
   crackScreen(clickPosition)
   if (clickCounter >= 3) {
-    console.log('olo')
     shatter(); // Launch shatter animation only after 3 clicks
 
     var elements = document.querySelectorAll('#crack');
     elements.forEach(function (element) {
       element.classList.add('done');
     });
+
+    var customEvent = new CustomEvent('finished', {
+      detail: {
+        message: 'This is my custom event'
+      },
+      bubbles: true,
+      cancelable: true
+    });
+
+    document.body.dispatchEvent(customEvent);
 
     clickCounter = 0; // Reset click counter
   }
@@ -124,6 +135,7 @@ function triangulate() {
 }
 
 function shatter() {
+  image.classList.add('rororo')
   var p0, p1, p2,
     fragment;
 
@@ -162,8 +174,11 @@ function shatter() {
     container.appendChild(fragment.canvas);
   }
 
-  container.removeChild(image);
-  //image.removeEventListener('click', imageClickHandler);
+  image.classList.add('yoyo')
+  setTimeout(function (){
+    document.getElementById('cold_dring').classList.add('show')
+  }, 1000)
+  image.removeEventListener('click', imageClickHandler);
 }
 
 function shatterCompleteHandler() {
@@ -174,6 +189,7 @@ function shatterCompleteHandler() {
   fragments.length = 0;
   vertices.length = 0;
   indices.length = 0;
+
 }
 
 //////////////
