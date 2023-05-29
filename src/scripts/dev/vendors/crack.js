@@ -53,6 +53,17 @@ function placeImage() {
 }
 
 function imageClickHandler(event) {
+
+  var imageClickedEvent = new CustomEvent('imageClicked', {
+    detail: {
+      message: 'This is my custom event'
+    },
+    bubbles: true,
+    cancelable: true
+  });
+
+  document.body.dispatchEvent(imageClickedEvent);
+
   var box = image.getBoundingClientRect(),
     top = box.top,
     left = box.left;
@@ -63,7 +74,6 @@ function imageClickHandler(event) {
   triangulate();
   clickCounter++
 
-  clearTimeout(mainTimeout)
   document.getElementById('cta').classList.add('hidden')
   crackScreen(clickPosition)
   if (clickCounter >= 3) {
@@ -176,8 +186,8 @@ function shatter() {
 
   image.classList.add('yoyo')
   setTimeout(function (){
-    document.getElementById('cold_dring').classList.add('show')
-  }, 1000)
+    document.getElementById('cold_dring').classList.add('animate__animated', 'animate__backInUp')
+  }, 2000)
   image.removeEventListener('click', imageClickHandler);
 }
 

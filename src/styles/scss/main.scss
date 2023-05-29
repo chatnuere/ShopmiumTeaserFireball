@@ -1,3 +1,4 @@
+@import "anmiate";
 @import "variables";
 @import "mixxins";
 @import "animations";
@@ -39,7 +40,7 @@ canvas {
   position: absolute;
   background-size: cover;
   background-position: center;
-  transform: translate(-66%, -78%);
+  transform: translate(-71%,-61%);
   z-index: 2000;
   pointer-events: none;
   opacity: 0.35;
@@ -83,11 +84,9 @@ canvas {
 
     &#cold_dring {
       visibility: hidden;
-
-      &.show {
-
-        animation: slideInDown 2s ease 0s 1 normal forwards;
-      }
+&.animate__animated {
+  visibility: visible;
+}
     }
   }
 
@@ -101,11 +100,18 @@ canvas {
   display: block;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(0%);
+  transform: translate(-50%, -50%);
   z-index: 2000;
   transform-origin: center;
 
-  animation: break 2s ease infinite;
+  img {
+    display: block;
+    transform-origin: bottom left;
+    animation: break 2s ease infinite;
+    width: 100%;
+  }
+
+
   pointer-events: none;
   transition: opacity 0.3s linear;
   &.hidden {

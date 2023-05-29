@@ -2,9 +2,7 @@
   var cta = document.getElementById("cta");
   var content = document.getElementById("content");
   var finished = false;
-  var clickInterval;
   var showBtn = function (timeout) {
-    clearInterval(clickInterval)
     setTimeout(function () {
       if (finished) return;
       finished = true;
@@ -12,14 +10,11 @@
     }, timeout);
   };
 
-  var startMainTimeout = function () {
+  var startMainTimeout = function (timeout) {
     mainTimeout = setTimeout(function () {
+      console.log('yolo')
       randomClick()
-
-      clickInterval = setInterval( function () {
-        randomClick()
-      }, 1000)
-    }, 9000);
+    }, timeout);
   };
 
   var randomClick = function() {
@@ -43,7 +38,7 @@
   }
 
   var start = function (size) {
-    startMainTimeout();
+    startMainTimeout(9000);
 
     imageWidth = window.innerWidth,
     imageHeight = window.innerHeight;
@@ -74,7 +69,11 @@
     );
 
     document.body.addEventListener('finished', function(e) {
-      showBtn(2500)
+      showBtn(3000)
+    });
+    document.body.addEventListener('imageClicked', function(e) {
+      clearTimeout(mainTimeout)
+      startMainTimeout(6000)
     });
   };
 
