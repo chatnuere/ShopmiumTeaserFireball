@@ -75,6 +75,7 @@ function imageClickHandler(event) {
   clickCounter++
 
   document.getElementById('cta').classList.add('hidden')
+  document.getElementById('ctaTxt').classList.add('hidden')
   crackScreen(clickPosition)
   if (clickCounter >= 3) {
     shatter(); // Launch shatter animation only after 3 clicks
@@ -185,6 +186,10 @@ function shatter() {
   }
 
   image.classList.add('yoyo')
+
+  setTimeout(function () {
+    document.getElementById('baygay2').classList.add('scaled')
+  }, 1500)
   setTimeout(function (){
     document.getElementById('cold_dring').classList.add('animate__animated', 'animate__backInUp')
   }, 2000)

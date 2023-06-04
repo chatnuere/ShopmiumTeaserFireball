@@ -73,7 +73,7 @@
     });
     document.body.addEventListener('imageClicked', function(e) {
       clearTimeout(mainTimeout)
-      startMainTimeout(6000)
+      startMainTimeout(10000)
     });
   };
 

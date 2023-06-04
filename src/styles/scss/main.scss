@@ -104,10 +104,11 @@ canvas {
   z-index: 2000;
   transform-origin: center;
 
+
   img {
     display: block;
     transform-origin: bottom left;
-    animation: break 2s ease infinite;
+    animation: break 3s ease infinite;
     width: 100%;
   }
 
@@ -119,3 +120,27 @@ canvas {
   }
 }
 
+#ctaTxt {
+  position: absolute;
+  width: 100%;
+  display: block;
+  top: 50%;
+  left: 50% ;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: opacity 0.3s linear;
+  z-index: 2000;
+  animation: shake 3s ease infinite;
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+#baygay2 {
+  transition: opacity .8s linear, transform 2s linear;
+  opacity: 1;
+  &.scaled {
+    //transform: scale(2);
+    opacity: 0;
+  }
+}

@@ -141,3 +141,53 @@
   }
 }
 
+
+
+@keyframes shake {
+  19%, 79% {
+    transform: translate(-50%, -50%);
+  }
+
+  20%, 80% {
+    transform: translate(calc(-50% - 2px), -50%);
+  }
+
+  21%, 81% {
+    transform: translate(calc(-50% + 2px), -50%);
+  }
+
+  22%, 82% {
+    transform: translate(calc(-50% - 2px), -50%);
+  }
+  23%, 83% {
+    transform: translate(calc(-50% + 2px), -50%);
+  }
+
+  24%, 84% {
+    transform: translate(-50%, -50%);
+  }
+
+
+  39%, 59% {
+    transform: translate(-50%, -50%);
+  }
+
+  40%, 60% {
+    transform: translate(calc(-50% - 2px), -50%);
+  }
+
+  41%, 61% {
+    transform: translate(calc(-50% + 2px), -50%);
+  }
+
+  42%, 62% {
+    transform: translate(calc(-50% - 2px), -50%);
+  }
+  43%, 63% {
+    transform: translate(calc(-50% + 2px), -50%);
+  }
+
+  44%, 64% {
+    transform: translate(-50%, -50%);
+  }
+}
